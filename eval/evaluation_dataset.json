@@ -1,0 +1,142 @@
+[
+  {
+    "id": "q1",
+    "type": "fact",
+    "question": "大语言模型（LLM）是什么？",
+    "ground_truth": "LLM 即大语言模型，是相较传统语言模型参数量更多、在更大规模语料上预训练、具备涌现能力的语言模型。",
+    "relevant_keywords": ["大语言模型", "参数量", "预训练", "涌现能力"]
+  },
+  {
+    "id": "q2",
+    "type": "fact",
+    "question": "RAG 是什么？",
+    "ground_truth": "RAG 是检索增强生成，在生成答案前先从外部文档库检索相关信息，并将检索结果融入生成过程，以提升准确性和时效性、缓解幻觉。",
+    "relevant_keywords": ["检索", "生成", "外部文档", "幻觉", "准确性"]
+  },
+  {
+    "id": "q3",
+    "type": "fact",
+    "question": "LLM Agent 是什么？",
+    "ground_truth": "LLM Agent 是以 LLM 为核心大脑，并赋予其自主规划、记忆和使用工具能力的系统。",
+    "relevant_keywords": ["LLM", "规划", "记忆", "工具使用", "自主性"]
+  },
+  {
+    "id": "q4",
+    "type": "fact",
+    "question": "Tokenizer 是什么？",
+    "ground_truth": "Tokenizer 是将文本分解为较小单位 token 的工具，这些 token 可以是词、子词、字符或特定符号。",
+    "relevant_keywords": ["Tokenizer", "文本", "token", "子词", "分词"]
+  },
+  {
+    "id": "q5",
+    "type": "concept",
+    "question": "什么是注意力机制？",
+    "ground_truth": "注意力机制通过计算 Query 与 Key 的相关性得到权重，再对 Value 加权求和，从而拟合序列中每个词与其他词的相关关系。",
+    "relevant_keywords": ["Query", "Key", "Value", "权重", "Softmax"]
+  },
+  {
+    "id": "q6",
+    "type": "concept",
+    "question": "什么是自注意力机制？",
+    "ground_truth": "自注意力是计算同一序列中每个元素对其他元素注意力分布的机制，Q、K、V 都由同一个输入通过不同参数矩阵计算得到。",
+    "relevant_keywords": ["自注意力", "Q", "K", "V", "同一输入"]
+  },
+  {
+    "id": "q7",
+    "type": "concept",
+    "question": "什么是掩码自注意力？",
+    "ground_truth": "掩码自注意力使用注意力掩码遮蔽未来 token，使模型只能利用历史信息预测下一个 token，并支持并行训练。",
+    "relevant_keywords": ["Mask", "未来信息", "上三角矩阵", "并行", "预测"]
+  },
+  {
+    "id": "q8",
+    "type": "concept",
+    "question": "什么是位置编码？",
+    "ground_truth": "位置编码用于为序列 token 加入位置信息，弥补注意力机制本身不保留顺序的缺陷，常见形式包括正弦余弦位置编码和 RoPE。",
+    "relevant_keywords": ["位置信息", "顺序", "正弦函数", "RoPE", "注意力"]
+  },
+  {
+    "id": "q9",
+    "type": "comparison",
+    "question": "GPT 和 BERT 有什么区别？",
+    "ground_truth": "GPT 是 Decoder-Only、自回归、单向注意力，适合文本生成；BERT 是 Encoder-Only，使用 MLM+NSP，双向注意力，适合自然语言理解。",
+    "relevant_keywords": ["Decoder-Only", "Encoder-Only", "自回归", "MLM", "双向注意力"]
+  },
+  {
+    "id": "q10",
+    "type": "comparison",
+    "question": "MLM 和 CLM 有什么区别？",
+    "ground_truth": "MLM 是掩码语言模型，随机遮蔽 token 并利用双向上下文预测被遮蔽内容；CLM 是因果语言模型，根据前文自回归预测下一个 token。",
+    "relevant_keywords": ["MLM", "CLM", "掩码", "自回归", "双向上下文"]
+  },
+  {
+    "id": "q11",
+    "type": "comparison",
+    "question": "Encoder-Only 和 Decoder-Only 有什么区别？",
+    "ground_truth": "Encoder-Only 堆叠 Encoder，常做 NLU，使用双向注意力；Decoder-Only 堆叠 Decoder，使用掩码自注意力，适合 NLG 和 LLM。",
+    "relevant_keywords": ["Encoder", "Decoder", "NLU", "NLG", "掩码自注意力"]
+  },
+  {
+    "id": "q12",
+    "type": "comparison",
+    "question": "数据并行和模型并行有什么区别？",
+    "ground_truth": "数据并行将不同批数据分到不同 GPU，每张卡上的模型参数保持一致；模型并行将模型不同层或部分拆分到不同 GPU，以容纳大模型。",
+    "relevant_keywords": ["数据并行", "模型并行", "GPU", "参数", "分布式训练"]
+  },
+  {
+    "id": "q13",
+    "type": "process",
+    "question": "训练一个完整 LLM 通常需要哪些阶段？",
+    "ground_truth": "通常包括 Pretrain、SFT 和 RLHF 三个阶段：预训练赋予模型知识，SFT 对齐用户指令，RLHF 进一步对齐人类价值观。",
+    "relevant_keywords": ["Pretrain", "SFT", "RLHF", "预训练", "对齐"]
+  },
+  {
+    "id": "q14",
+    "type": "process",
+    "question": "RAG 的基本流程是什么？",
+    "ground_truth": "RAG 基本流程包括索引、检索和生成：先将文档切分并向量化建立索引，再根据问题检索相关文档片段，最后以检索到的上下文为条件生成回答。",
+    "relevant_keywords": ["索引", "检索", "生成", "向量化", "文档切分"]
+  },
+  {
+    "id": "q15",
+    "type": "process",
+    "question": "使用 PEFT 进行 LoRA 微调的主要步骤是什么？",
+    "ground_truth": "先加载基座模型和 tokenizer，设置 LoraConfig 等 peft 参数，再通过 get_peft_model 获取 LoRA 模型，最后使用 Trainer 进行训练。",
+    "relevant_keywords": ["PEFT", "LoRA", "LoraConfig", "get_peft_model", "Trainer"]
+  },
+  {
+    "id": "q16",
+    "type": "process",
+    "question": "Tiny-Agent 的工作流程是什么？",
+    "ground_truth": "Agent 接收用户输入，调用 LLM 并告知可用工具 Schema；若模型决定调用工具，Agent 执行相应函数，将结果返回模型，模型再生成最终回复。",
+    "relevant_keywords": ["用户输入", "LLM", "工具调用", "Schema", "最终回复"]
+  },
+  {
+    "id": "q17",
+    "type": "global",
+    "question": "《Happy-LLM》项目的核心目标是什么？",
+    "ground_truth": "帮助学习者深入理解大语言模型的原理和训练过程，并动手搭建、训练一个 LLM，实现授之以鱼更授之以渔。",
+    "relevant_keywords": ["Happy-LLM", "LLM", "原理", "训练过程", "动手搭建"]
+  },
+  {
+    "id": "q18",
+    "type": "global",
+    "question": "LLM 与传统 PLM 的核心差异是什么？",
+    "ground_truth": "LLM 在 PLM 基础上扩大模型参数和预训练数据规模，并引入指令微调、RLHF，具备涌现能力、上下文学习、指令遵循和逐步推理能力。",
+    "relevant_keywords": ["PLM", "涌现能力", "上下文学习", "指令遵循", "逐步推理"]
+  },
+  {
+    "id": "q19",
+    "type": "global",
+    "question": "Transformer 的核心创新是什么？",
+    "ground_truth": "Transformer 完全由注意力机制构成，抛弃 RNN/LSTM，实现并行计算和长距离依赖建模，是 LLM 的核心架构。",
+    "relevant_keywords": ["注意力机制", "并行计算", "长距离依赖", "Encoder", "Decoder"]
+  },
+  {
+    "id": "q20",
+    "type": "global",
+    "question": "RAG 的核心价值是什么？",
+    "ground_truth": "RAG 将检索与生成结合，用外部真实文档指导生成，缓解幻觉、加快知识更新，并增强生成内容的可追溯性和可信度。",
+    "relevant_keywords": ["检索", "生成", "幻觉", "知识更新", "可追溯"]
+  }
+]
