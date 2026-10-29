@@ -25,6 +25,8 @@ pdf-rag/
 │   ├── test_routing.py     # 关键词路由 vs LLM 路由对比评测
 │   ├── routing_test_set.json
 │   └── results*.json       # 历史评测结果
+├── docs/
+│   └── RAG知识库问答系统实验总报告（七项实验整合版）.docx
 ├── requirements.txt
 ├── .env.example            # 环境变量模板
 └── knowledge_base/         # 本地文档目录
@@ -65,6 +67,10 @@ python agent_demo.py          # 观察 Agent 的工具选择行为
 ```
 
 `eval/evaluate.py` 让评测模型对照标准答案与参考关键词，对回答给出 0-100 分并列出命中/遗漏关键词；`eval/test_routing.py` 对比关键词路由与 LLM 路由在路由测试集上的表现。
+
+## 实验报告
+
+完整实验记录见 [RAG 知识库问答系统实验总报告（七项实验整合版）](<docs/RAG知识库问答系统实验总报告（七项实验整合版）.docx>)。该报告把 7 份专项实验整合为九章，覆盖 A–G 检索参数对照、20 题端到端评估、LLM 评估员修正、智能路由测试、性能与成本核算、分块策略对照、Rerank 重排对照，并统一了 chunk_size 以字符为单位的计量口径。
 
 ## 说明
 
